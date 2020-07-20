@@ -1,0 +1,31 @@
+# 开发环境配置
+server:
+  # 服务器的HTTP端口，默认为80
+  port: 8082
+  servlet:
+    # 应用的访问路径
+    context-path: /
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/content_center?serverTimezone=UTC
+    hikari:
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        #指定namespace
+        namespace: 03adbaf6-a2a3-4377-b6b3-28f90b1cca18
+        cluster-name: BJ
+        metadata:
+          bate: v1
+  application:
+    # nacos 服务名称，尽量用-，不要用_
+    name: content-center
+ribbon:
+  eager-load:
+    enabled: true
+    clients: user-center
