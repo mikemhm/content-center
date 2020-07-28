@@ -33,3 +33,9 @@ ribbon:
 logging:
   level:
     com.itmuch.contentcenter.feignClient.UserCenterFeignClient: debug
+
+jwt:
+  #秘钥
+  secret: adfjkdfaj
+  # 有效期，单位秒，默认2周
+  expire-time-in-second: 1209600
