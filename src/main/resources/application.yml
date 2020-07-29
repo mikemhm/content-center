@@ -1,7 +1,7 @@
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为80
-  port: 8082
+  port: 8081
   servlet:
     # 应用的访问路径
     context-path: /
@@ -22,9 +22,15 @@ spring:
         cluster-name: BJ
         metadata:
           bate: v1
+    sentinel:
+      transport:
+        #指定sentinel控制台地址
+        dashboard: localhost:8080
   application:
     # nacos 服务名称，尽量用-，不要用_
     name: content-center
+  main:
+    allow-bean-definition-overriding: true
 ribbon:
   eager-load:
     enabled: true
@@ -39,3 +45,18 @@ jwt:
   secret: adfjkdfaj
   # 有效期，单位秒，默认2周
   expire-time-in-second: 1209600
+feign:
+  sentinel:
+    #为feign整合sentinel
+    enabled: true
+  httpclient:
+    #让feign使用apache httpclient 做请求
+    enabled: true
+    max-connections: 200
+    # 单个路径最大连接数
+    max-connections-per-route: 50
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
