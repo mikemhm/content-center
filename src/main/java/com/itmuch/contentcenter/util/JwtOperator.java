@@ -22,13 +22,13 @@ public class JwtOperator {
 	 * 秘钥
 	 * - 默认aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrsssttt
 	 */
-	@Value("${secret:aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrsssttt}")
+	@Value("${jwt.secret:aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrsssttt}")
 	private String secret;
 	/**
 	 * 有效期，单位秒
 	 * - 默认2周
 	 */
-	@Value("${expire-time-in-second:1209600}")
+	@Value("${jwt.expire-time-in-second:1209600}")
 	private Long expirationTimeInSecond;
 
 	/**
@@ -130,10 +130,10 @@ public class JwtOperator {
 //		System.out.println(token);
 
 		// 将我改成上面生成的token!!!
-		String someToken = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJpYXQiOjE1OTU5NDg4NDEsImV4cCI6MTU5NzE1ODQ0MX0.-5BKPyLOSFw_VQ7BLBH9USYo1R7ZRmihzVAk1_HUidw";
-		// 测试2: 如果能token合法且未过期，返回true
-		Boolean validateToken = jwtOperator.validateToken(someToken);
-		System.out.println(validateToken);
+//		String someToken = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEiLCJpYXQiOjE1OTU5NDg4NDEsImV4cCI6MTU5NzE1ODQ0MX0.-5BKPyLOSFw_VQ7BLBH9USYo1R7ZRmihzVAk1_HUidw";
+//		// 测试2: 如果能token合法且未过期，返回true
+//		Boolean validateToken = jwtOperator.validateToken(someToken);
+//		System.out.println(validateToken);
 //
 //		// 测试3: 获取用户信息
 //		Claims claims = jwtOperator.getClaimsFromToken(someToken);

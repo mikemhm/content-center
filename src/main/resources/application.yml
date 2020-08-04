@@ -42,19 +42,26 @@ logging:
 
 jwt:
   #秘钥
-  secret: adfjkdfaj
+  secret: aaabbbcccdddeeefff12133ggghhhiiijjjkkklllmmmnnnooopppqqqrrrsssttt
   # 有效期，单位秒，默认2周
   expire-time-in-second: 1209600
 feign:
   sentinel:
     #为feign整合sentinel
-    enabled: true
+#    enabled: true
   httpclient:
     #让feign使用apache httpclient 做请求
     enabled: true
     max-connections: 200
     # 单个路径最大连接数
     max-connections-per-route: 50
+  client:
+    config:
+      default:
+        #配置日志级别
+        loggerLevel: full
+        #配置公共的请求信息
+        requestInterceptors: com.itmuch.contentcenter.feignClient.interceptor.TokenRelayRequestIntecepor
 management:
   endpoints:
     web:
