@@ -1,10 +1,10 @@
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为80
-  port: 8081
+  port: 8082
   servlet:
     # 应用的访问路径
-    context-path: /
+    context-path:
 
 spring:
   datasource:
@@ -67,3 +67,8 @@ management:
     web:
       exposure:
         include: '*'
+rocketmq:
+  name-server: 192.168.205.128:9876
+  producer:
+    # 必须指定group
+    group: test-group

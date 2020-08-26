@@ -2,14 +2,13 @@ package com.itmuch.contentcenter.controller.content;
 
 import com.itmuch.contentcenter.auth.CheckAuthorization;
 import com.itmuch.contentcenter.auth.CheckLogin;
+import com.itmuch.contentcenter.domain.dto.content.ShareAuditDTO;
 import com.itmuch.contentcenter.domain.dto.content.ShareDTO;
+import com.itmuch.contentcenter.domain.entity.share.Share;
 import com.itmuch.contentcenter.service.content.ShareService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin/shares")
@@ -23,5 +22,11 @@ public class ShareAdminController {
     @CheckAuthorization("admin")
     public ShareDTO findById(@PathVariable Integer id){
         return this.shareService.findById(id);
+    }
+
+    @PutMapping("/audit/{id}")
+    public Share auditById(@PathVariable Integer id,@RequestBody ShareAuditDTO shareAuditDTO){
+        Share share = this.shareService.auditById(id, shareAuditDTO);
+        return share;
     }
 }
