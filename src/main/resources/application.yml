@@ -26,6 +26,14 @@ spring:
       transport:
         #指定sentinel控制台地址
         dashboard: localhost:8080
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+        bindings:
+          output:
+            # 用来指定topic
+            destination: stream-test-topic
   application:
     # nacos 服务名称，尽量用-，不要用_
     name: content-center
