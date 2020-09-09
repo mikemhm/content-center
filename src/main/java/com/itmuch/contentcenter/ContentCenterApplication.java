@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 import tk.mybatis.spring.annotation.MapperScan;
 
+
 @MapperScan("com.itmuch")
 @SpringBootApplication
 @EnableFeignClients
