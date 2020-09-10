@@ -1,7 +1,7 @@
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为80
-  port: 8082
+  port: 8083
   servlet:
     # 应用的访问路径
     context-path:
@@ -29,11 +29,13 @@ spring:
     stream:
       rocketmq:
         binder:
-          name-server: localhost:9876
+          name-server: 192.168.205.128:9876
         bindings:
           output:
             # 用来指定topic
             destination: stream-test-topic
+          my_output:
+            destination: stream-my-topic
   main:
     allow-bean-definition-overriding: true
 ribbon:
@@ -44,6 +46,7 @@ ribbon:
 logging:
   level:
     com.itmuch.contentcenter.feignClient.UserCenterFeignClient: debug
+    com.alibaba.nacos: error
 
 jwt:
   #秘钥
@@ -74,6 +77,6 @@ management:
         include: '*'
 rocketmq:
   name-server: 192.168.205.128:9876
-  producer:
-    # 必须指定group
-    group: test-group
+#  producer:
+#    # 必须指定group
+#    group: test-group
