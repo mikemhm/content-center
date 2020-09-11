@@ -30,12 +30,12 @@ spring:
       rocketmq:
         binder:
           name-server: 192.168.205.128:9876
-        bindings:
-          output:
-            # 用来指定topic
-            destination: stream-test-topic
-          my_output:
-            destination: stream-my-topic
+      bindings:
+        output:
+          # 用来指定topic
+          destination: stream-test-topic
+        my_output:
+          destination: stream-my-topic
   main:
     allow-bean-definition-overriding: true
 ribbon:

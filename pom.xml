@@ -64,10 +64,10 @@
         <!--</dependency>-->
 
         <!--通过actuator 端点查看 是否受到 sentinel 保护-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-actuator</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
         <!--jwt开源库依赖-->
         <dependency>
